@@ -72,7 +72,7 @@ Each week during the semester you will be provided pre-recorded video lectures a
 | Week | Topic | Slides | Videos | Resources
 |------|-------|--------|--------|----------
 | 1/16 | Web Essentials | [Introduction](https://pages.ramapo.edu/~sfrees/courses/cmps369/slides/introduction.html#1) <br/>[Networks](https://pages.ramapo.edu/~sfrees/courses/cmps369/slides/networks.html#1) <br/>[Recitation 1](https://pages.ramapo.edu/~sfrees/courses/cmps369/slides/rec01.html#1)| [Introduction](https://sfrees-lectures.s3.us-east-2.amazonaws.com/cmps369/sp23/01-Introduction.mp4) <br/>[Networks](https://sfrees-lectures.s3.us-east-2.amazonaws.com/cmps369/sp23/02-networks.mp4)| [NodeJS Download](https://nodejs.org/en/download/)
-| 1/23 | HTTP & HTML |[HTTP](https://pages.ramapo.edu/~sfrees/courses/cmps369/slides/http.html#1) | [HTTP](https://sfrees-lectures.s3.us-east-2.amazonaws.com/cmps369/sp23/03-https.mp4)| [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/HTML)
+| 1/23 | HTTP & HTML |[HTTP](https://pages.ramapo.edu/~sfrees/courses/cmps369/slides/http.html#1) | [HTTP](https://sfrees-lectures.s3.us-east-2.amazonaws.com/cmps369/sp23/03-http.mp4)| [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/HTML)
 | 1/30 | HTML Forms, JavaScript and Node.js | | |
 | 2/6  | HTML Forms, JavaScript and Node.js (Continued) | | |
 | 2/13 | Templates with Pug | | |
