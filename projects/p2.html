@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>p2.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="project-2---contact-list">Project 2 - Contact List</h1>
+<p>In this project you will create an editable contact list, including logins.  <strong>Most importantly</strong> you will be using all of the <strong>new</strong> techniques we've been learning recently - a database (<code>sqlite</code>), <code>pug</code>, <code>express</code>, authentication and authorization, and effective middleware.</p>
+<h2 id="functionality">Functionality</h2>
+<p>This application is aimed at capturing peoples contact information, so whoever is running this application can later spam them for future marketing offers on their hypothetical (and at this time unknown) product.</p>
+<p>There are two pecularliar aspects of this application:</p>
+<ul>
+<li>Anyone can add their own contact information, or some one else's contact information!</li>
+<li>Anyone can view all of the contact information added to the site!</li>
+<li>Anyone can register to the site, login, and edit anyone's contact information!</li>
+</ul>
+<p>This is (hopefully) very clearly a strange application, and a gigantic privacy catastrophe, but we will pretend it's reasonable.</p>
+<h3 id="data-schema">Data Schema</h3>
+<p>There are two tables/entities you will be working with:</p>
+<p><strong>Contact</strong></p>
+<ul>
+<li>ID</li>
+<li>First Name (text)</li>
+<li>Last Name (text)</li>
+<li>Phone Number (text)</li>
+<li>Email Address (text)</li>
+<li>Street (text)</li>
+<li>City (text)</li>
+<li>State (text)</li>
+<li>Zip (text)</li>
+<li>Country (text)</li>
+<li>Contact_By_Email (1 or 0) - indicates whether this person is ok being spammed by email</li>
+<li>Contact_By_Phone (1 or 0) - indicates whether this person is ok being spammed by text and phone calls</li>
+</ul>
+<p><strong>Users</strong></p>
+<ul>
+<li>ID</li>
+<li>First Name (text)</li>
+<li>Last Name (text)</li>
+<li>Username (text)</li>
+<li>Password (Salt+Hash using <code>bcrypt</code>) (test)</li>
+</ul>
+<h3 id="pages--routes">Pages / Routes</h3>
+<ul>
+<li><code>/</code>  - shows all contacts in a table.  Each row should be clickable to go to <code>/:id</code> for the associated contact.  The main page should have a link towards the top to login/logout, and should also have a link to the <code>/create</code> page to create new contact.</li>
+<li><code>/login</code> - shows login screen.  The page should contain a form, which posts back to <code>/login</code> and does the login.  Redirect to the <code>/</code> page if successful, and display the <code>/login</code> screen with an error message if unsuccessful.  You should have a link to the <code>/signup</code> page on the login page.</li>
+<li><code>/signup</code> - shows signup page.  The page should contain a form, which posts back to <code>/signup</code> to create user.  Redirect to <code>/login</code> if successful, and display the <code>/signup</code> screen with an error message if unsuccessful.  Do not allow multiple accounts with the same username, and do not permit an account to be created if the user doesn't enter the same password in twice (see the demo!).  **You must use <code>bcryptjs</code> to store password hashes with salt correctly.</li>
+<li><code>/create</code> - displays a form to create a contact.  Post to <code>/create</code> creates the contact, and redirects to the <code>/</code> page.</li>
+<li><code>/:id</code> - display contact with id = <code>:id</code>.  This page should have links to <code>/:id/edit</code> and <code>/:id/delete</code>.  You should have a link back to <code>/</code> on this page.</li>
+<li><code>/:id/edit</code> - displays edit page for a contact, and posts to <code>/:id/edit</code> to save the contact changes.  On successful save, redirect back to <code>/:id</code> to show the newly saved contact data.</li>
+<li><code>/:id/delete</code> - displays confirmation page for deletion, with a form (no user input) that posts back to <code>/:id/delete</code>, which executes the delete a redirects back to <code>:/id</code>.</li>
+</ul>
+<p><strong>Important</strong>  Use the demo below to explore the implementation.  Use <code>View Source</code> to view the HTML, so you can gain a better understanding of how it is all supposed to work!</p>
+<h2 id="demonstration">Demonstration</h2>
+<p>You can view exactly how the application should work at the following URL:</p>
+<p><a href="https://cmps369-p2.onrender.com/">https://cmps369-p2.onrender.com/</a></p>
+<p>Please take note of a few important things about this demo:</p>
+<ol>
+<li>
+<p>I do not want the public to be able to add content to a web page.  Therefore, even though all the pages accept user input, the input is overridden by fake data using the <a href="https://fakerjs.dev/">https://fakerjs.dev/</a> library.  Please don't be confused - <strong>your application should actually use the data your users enter!</strong>.</p>
+</li>
+<li>
+<p>Throughout the application I've placed notes - indicated by the 📌 marker.  <strong>Your application should not have these</strong>, they are for demonstration purposes.</p>
+</li>
+<li>
+<p>I used <a href="https://watercss.kognise.dev/">water.css</a> again, like in project 1.  You can add a link to that css file in your <code>layout.pug</code> to make your site look nicer, but it's up to you.  <strong>Do not use additional CSS in this project</strong>.</p>
+</li>
+</ol>
+<h2 id="methods">Methods</h2>
+<p>Please read this section <strong>carefully</strong>.  Failure to use the appropriate techniques will result in sigificant loss of credit, as the entire purpose of this assignment is to ensure you've mastered the latest techniques we've been covering.</p>
+<h3 id="database">Database</h3>
+<p>You must store users and contacts in an <code>sqlite</code> database, using the <code>dbcmps369</code> module.</p>
+<p>You are not required to create a wrapper like we have with the guessing game (<code>gdbcmps369</code>), however I strongly encourage you to do so. Creating a wrapper allows your code to be better organized, and it really doesn't take much time.  You <strong>should not</strong> publish a wrapper to <code>npm</code>, if you make a wrapper class simply put it in a separate file and include it (<code>require</code>) using the path notation - <code>require(./ContactDB</code>) - for example.</p>
+<p>Your database should be initialized when express is configured, and must be added to the <code>request</code> object through middleware.  Please see the associated lecture video on adding authentication to the guessing game, which demonstates exactly how this is done.</p>
+<h3 id="express">Express</h3>
+<p>You must use <code>express</code>.  You may choose whether to put your routes in separate files (I strongly encourage you to do so), but you may not use the <code>http</code> package directly, and you must use express for your rendering with <code>pug</code> (<code>res.render</code>).</p>
+<h3 id="pug">Pug</h3>
+<p>All (and I mean all!) HTML must be generated through <code>pug</code>, whether there is an associated model for the page or not.</p>
+<h3 id="accounts--passwords">Accounts &amp; Passwords</h3>
+<p>Your application, during initalization, <strong>must</strong> check to see if the following user/password exists (just check for the user), and must create it if it does not.</p>
+<ul>
+<li>username: cmps369</li>
+<li>password: rcnj</li>
+</ul>
+<p>Your application should, to earn all your points, allow a user to sign up (specifying their own username, name, and password), but if you fail to do this you can still earn up to 85% as long as you have created the <code>cmps369/rcnj</code> user.</p>
+<p>All passwords must be stored <strong>hashed</strong>, and salt must be used.  Failure to store passwords and salt correctly will lead to a significant credit penalty.</p>
+<h3 id="page-navigation">Page navigation</h3>
+<p>You should not use query strings.  For links that refer to specific contacts, the contact <code>id</code> should be part of the path, and utilized through <code>req.params</code>.</p>
+<h1 id="helpful-tips">Helpful Tips</h1>
+<h2 id="checkboxes">Checkboxes</h2>
+<p>When you submit a form with checkboxes, remember that the HTTP request body will have one of two values: &quot;on&quot; or nothing at all.</p>
+<p>Let's say you have the following form:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'checkbox'</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'example'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">'example'</span>&gt;</span> An example
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'submit'</span>&gt;</span> Submit
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</div></code></pre>
+<p>When the form is submitted, if the user has <strong>checked</strong> the checkbox, then <code>req.body</code> will look like this:</p>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">example</span>: <span class="hljs-string">"on"</span>
+}
+</div></code></pre>
+<p>If the user <strong>has NOT checked</strong> the checkbox, then the <code>req.body</code> object will look like this:</p>
+<pre class="hljs"><code><div>{
+
+}
+</div></code></pre>
+<p>Read the above carefully - if the checkbox is checked, the form element will be found in the request body and the value will be &quot;on&quot;.  If the checkbox is not checked, the form element will not be in the request body <strong>at all</strong>.</p>
+<p>More often than not, you want the actual value of the variable being represented by the checkbox to be a boolean - <code>true</code> or <code>false</code>.</p>
+<p>Here's how you might inspect the request body and set the variable <strong>server side</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> example = req.body.example !== <span class="hljs-literal">undefined</span>;
+</div></code></pre>
+<p>Note the <strong>triple</strong> equals, I really mean <em>completely</em> undefined.  Note also that I haven't actually compared the value - if the value is present in the request body <strong>at all</strong>, then I'll consider it <code>true</code>.  This is best practice - since although most browsers behave the same these days, you don't want a strange browser sending &quot;checked&quot; instead of &quot;on&quot; and messing you up!</p>
+<p>While we are at it, assuming you have a variable that is <code>true</code>/<code>false</code>, you can render a checkbox with pug with the default state for <code>checked</code> by doing this:</p>
+<pre class="hljs"><code><div>input(type='checkbox', name='example', checked=example)
+</div></code></pre>
+<p>Note this <strong>only</strong> works if <code>example</code> is in the model, and <code>example</code> is a pure boolean - not a string!</p>
+<h2 id="managing-your-database">Managing your database</h2>
+<p>It's recommended that you create a wrapper class to create a nice API into the database, similar to the GameDB we've created during lecture.</p>
+<p>Keep in mind that if you change the <strong>schema</strong> - for example if you forget a column and need to add it - you will need to delete your <code>.db</code> file, so the code will recreate it (the <code>initialize</code> function).  If we were working more with databases, there are ways to alter an existing database - but that's outside the scope of this class.</p>
+
+</body>
+</html>

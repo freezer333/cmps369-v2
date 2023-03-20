@@ -1,0 +1,26 @@
+
+mixin guess_list(guesses, secret)
+    ul 
+        each guess in guesses 
+            li 
+                span #{guess.value} 
+                if guess.value === secret 
+                    span - Correct!
+                else if guess.value < secret 
+                    span - Too Low! 
+                else 
+                    span - Too High!
+
+doctype html
+html
+    head
+        title Guess+
+    body
+        if !hide_login
+            if user 
+                span
+                    span Logged in: #{user.email}  
+                    a(href='/logout') Logout
+            else
+                a(href='/login') Login
+        block content

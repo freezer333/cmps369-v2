@@ -1,0 +1,17 @@
+extends layout.pug
+
+block content
+    h1 Login 
+    form(action='/login', method='post')
+        input(type='text', placeholder='Email address', name='email')
+        br
+        input(type='password', name='password')
+        br
+        button(type='submit') Login
+        if message 
+            p #{message}
+    
+    p
+        a(href='/signup') No account?  Sign up!
+    p 
+        a(href='/') Play without logging in

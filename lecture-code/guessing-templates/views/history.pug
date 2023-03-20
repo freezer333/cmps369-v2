@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title Guess
+    body
+        table 
+            thead 
+                tr 
+                    th Game ID 
+                    th Complete 
+                    th Num Guesses 
+                    th Started 
+            tbody 
+                each g in games 
+                    tr 
+                        td: a(href="/history?gameId="+g.id) #{g.id}
+                        td 
+                            if g.complete
+                                span Yes 
+                        td #{g.num_guesses}
+                        td #{g.time}
+        a(href="/") Play the game!

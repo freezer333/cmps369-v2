@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+    table
+        thead
+            tr
+                th Value
+                th Time
+        tbody
+            each g in game_guesses 
+                tr
+                    td #{g.value}
+                    td #{g.time}
+    a(href="/history") Game History

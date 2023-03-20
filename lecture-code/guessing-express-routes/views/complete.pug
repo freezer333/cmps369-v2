@@ -1,0 +1,6 @@
+extends layout.pug
+
+block content
+    h1 Great job!
+    +guess_list(guesses, secret)
+    p: a(href="/") Play again

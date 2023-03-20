@@ -1,0 +1,21 @@
+
+mixin guess_list(guesses, secret)
+    ul 
+        each guess in guesses 
+            li(class=guess.value === secret ? 'correct' : guess.value < secret ? 'low' : 'high') 
+                span #{guess.value} 
+                if guess.value === secret 
+                    span - Correct!
+                else if guess.value < secret 
+                    span - Too Low! 
+                else 
+                    span - Too High!
+
+doctype html
+html
+    head
+        title Guess+
+        meta(name="viewport", content="width=device-width,initial-scale=1")
+        link(rel="stylesheet", href="/guess.css")
+    body
+        block content

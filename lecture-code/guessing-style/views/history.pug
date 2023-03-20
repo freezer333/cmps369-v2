@@ -1,0 +1,23 @@
+extends layout.pug
+
+block content
+    nav
+        a(href="/") Play the game!
+    .container
+        table 
+            thead 
+                tr 
+                    th Game ID 
+                    th Complete 
+                    th Num Guesses 
+                    th Started 
+            tbody 
+                each g in games 
+                    tr 
+                        td: a(href="/history/"+g.id) #{g.id}
+                        td 
+                            if g.complete
+                                span Yes 
+                        td #{g.num_guesses}
+                        td #{g.time}
+    

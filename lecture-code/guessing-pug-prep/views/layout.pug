@@ -1,0 +1,14 @@
+mixin guess(guess, secret)
+    if guess === secret
+        li #{guess} - Correct!
+    else if guess < secret
+        li #{guess} - Too Low!
+    else if guess > secret
+        li #{guess} - Too High!
+
+doctype html
+html 
+    head 
+        title + Guessing Game 
+    body 
+        block content

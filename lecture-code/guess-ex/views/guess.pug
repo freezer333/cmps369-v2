@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+    form(action="/", method="POST")
+        if result === undefined
+            p I'm thinking of a number from 1-10!
+        else 
+            p Sorry your guess was #{result}, try again! 
+        label(for="guess") Enter your guess: 
+        input(name="guess", placeholder="1-10", type="number", min="1", max="10")
+        input(name="gameId", value=gameId, type="hidden")
+        button(type='submit') Submit 
+
+    +guess_list(guesses, secret)
+    if user
+        a(href="/history") Game History

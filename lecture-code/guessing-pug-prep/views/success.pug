@@ -1,0 +1,7 @@
+extends layout.pug
+block content 
+    h1 Great job!
+    ul 
+        each guess in guesses
+            +guess(guess.value, guess.secret)
+    a(href="/history") Game History

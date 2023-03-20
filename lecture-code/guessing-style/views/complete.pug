@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+    nav
+        a(href="/") Play the game!
+    .container 
+        section
+            h1 Great job!
+        section
+            +guess_list(guesses, secret)
